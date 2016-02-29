@@ -105,4 +105,44 @@ curl -XGET 'http://test.el.daba.cn/_search?size=10&pretty' -d {
 	}
 }
 </pre>
+###每天的PV
+http://test.el.daba.cn/logstash-2016.02.25/_search?search_type=count //索引日期需要更改
+{
+	"aggs": {
+		"PV": {
+		    "terms": {
+		        "field": "req_url_params.raw",		//字段值需要更改
+		        "size": 4
+		    } 
+		}
+	}
+}
+###每天的UV
+
+###每天的IP
+
+###前端错误msg+target:
+1. 每天：
+<pre>
+http://test.el.daba.cn/logstash-2016.02.12/_search?search_type=count
+
+{
+	"aggs": {
+		"msg": {
+		    "terms": {
+		        "field": "req_params.msg.raw",
+		        "size": 2
+		    } ,
+    		"aggs": {
+    		    "target":{
+    		        "terms":{
+    		            "field":"req_params.target.raw",
+    		        "size": 2
+    		        }
+    		    }
+    		}
+		}
+	}
+}
+</pre>
 
