@@ -146,3 +146,17 @@ http://test.el.daba.cn/logstash-2016.02.12/_search?search_type=count
 }
 </pre>
 
+##按时间范围查询查询
+{
+    "aggs": {
+        "yesterday": {
+            "range": {
+                "field": "@timestamp",
+                "ranges": [
+                    { "from": "2016-01-03T00:00:00+08:00", "to": "2016-01-04T23:59:59+0800" }
+                ]
+            }
+        }
+    }
+}
+##聚合的同时范围过滤
