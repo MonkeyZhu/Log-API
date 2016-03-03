@@ -1,0 +1,5 @@
+　　当logstash把文件输出到Elasticsearch之后，如何保存，就是ES的事情了。
+
+　　之所以将logstash+Elasticsearch+Kibana称为ELK stack，他们之间的紧密关系自然不必多说。所以，当我们把数据添加进入ES而不指定index时，ES默认会给你以logstash-YYYY.MM.DD新建索引，每天一个。不仅如此，ES还内置了一个名字logstash的模板，会把你所有的没有指定索引名字的，按照该模板进行映射。这在一定程度上方便了一些人。但是对于一个处处想要
+
+　　
