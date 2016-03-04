@@ -3,3 +3,6 @@
 所以，当我们把数据添加进入ES而不指定index时，ES默认会给你以logstash-YYYY.MM.DD新建索引，每天一个。
 不仅如此，ES还内置了一个名字logstash的模板，会把你所有的没有指定索引名字的，按照该模板进行映射。
 这在一定程度上方便了一些人。但是对于一个处处想要
+
+/export/bin/logstash-2.2.0/vendor/bundle/jruby/1.9/gems/logstash-core-event-2.2.0-java/lib/logstash/string_interpolation.rb
+第137行，把::UTC改成了.getDefault()，暂时将索引创建时间由北京时间的8点修正为了0点；如果今后有时间差错，可以考虑将这个修改回来。
